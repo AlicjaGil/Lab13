@@ -1,10 +1,15 @@
 # Lab13
+
+##CZĘŚĆ OBOWIĄZKOWA
+```
 gil-a@LAPTOP-HU5MFDCI:/mnt/c/Users/gil-a/Desktop/Studia/Semestr 6/docker/lab13$ docker compose pull
 [+] pull 60/60
  ✔ Image mysql:8.4         Pulled                                                                                  18.8s
  ✔ Image php:8.3-fpm       Pulled                                                                                  15.7s
  ✔ Image nginx:1.27-alpine Pulled                                                                                  5.0ss
  ✔ Image phpmyadmin:5.2    Pulled                                                                                  18.4s
+```
+```
 gil-a@LAPTOP-HU5MFDCI:/mnt/c/Users/gil-a/Desktop/Studia/Semestr 6/docker/lab13$ docker images
                                                                                                     i Info →   U  In Use
 IMAGE                              ID             DISK USAGE   CONTENT SIZE   EXTRA
@@ -41,6 +46,8 @@ web100:latest                      8a924fc64d51        269MB         64.9MB    U
 web:stage1                         f5d2372a30fb       13.3MB         3.94MB
 web:v5                             871d3a9d76fa       92.8MB         26.1MB    U
 web:v6                             0dc31d6ac2d3       92.9MB         26.1MB    U
+```
+```
 gil-a@LAPTOP-HU5MFDCI:/mnt/c/Users/gil-a/Desktop/Studia/Semestr 6/docker/lab13$ docker compose up -d
 [+] up 7/7
  ✔ Network lab13_backend   Created                                                                                  0.0s
@@ -50,6 +57,8 @@ gil-a@LAPTOP-HU5MFDCI:/mnt/c/Users/gil-a/Desktop/Studia/Semestr 6/docker/lab13$ 
  ✔ Container mysql         Started                                                                                  0.4s
  ✔ Container phpmyadmin    Started                                                                                  0.6s
  ✔ Container nginx         Started                                                                                  0.7s
+```
+```
 gil-a@LAPTOP-HU5MFDCI:/mnt/c/Users/gil-a/Desktop/Studia/Semestr 6/docker/lab13$ docker ps
 CONTAINER ID   IMAGE                              COMMAND                  CREATED          STATUS                   PORTS                                         NAMES
 c05db43ba1a1   phpmyadmin:5.2                     "/docker-entrypoint.…"   10 seconds ago   Up 9 seconds             0.0.0.0:6001->80/tcp, [::]:6001->80/tcp       phpmyadmin
@@ -59,6 +68,8 @@ c05db43ba1a1   phpmyadmin:5.2                     "/docker-entrypoint.…"   10 
 03f58ec5b18e   grafana/grafana                    "/run.sh"                2 days ago       Up 6 minutes             0.0.0.0:3000->3000/tcp, [::]:3000->3000/tcp   grafana
 ab5edefa719a   prom/prometheus                    "/bin/prometheus --c…"   2 days ago       Up 6 minutes             9090/tcp                                      prometheus
 c84a1b48e2da   gcr.io/cadvisor/cadvisor:v0.47.1   "/usr/bin/cadvisor -…"   2 days ago       Up 6 minutes (healthy)   8080/tcp                                      cadvisor
+```
+```
 gil-a@LAPTOP-HU5MFDCI:/mnt/c/Users/gil-a/Desktop/Studia/Semestr 6/docker/lab13$ docker network ls
 NETWORK ID     NAME             DRIVER    SCOPE
 7307f2071398   bridge           bridge    local
@@ -70,6 +81,8 @@ b804871b9c74   lab12net         bridge    local
 3b045ea5e2bc   lab13_backend    bridge    local
 843e0e348c03   lab13_frontend   bridge    local
 3948a8584d86   none             null      local
+```
+```
 gil-a@LAPTOP-HU5MFDCI:/mnt/c/Users/gil-a/Desktop/Studia/Semestr 6/docker/lab13$ docker network inspect lab13-lemp_backend
 []
 Error response from daemon: network lab13-lemp_backend not found
@@ -149,6 +162,8 @@ gil-a@LAPTOP-HU5MFDCI:/mnt/c/Users/gil-a/Desktop/Studia/Semestr 6/docker/lab13$ 
         }
     }
 ]
+```
+```
 gil-a@LAPTOP-HU5MFDCI:/mnt/c/Users/gil-a/Desktop/Studia/Semestr 6/docker/lab13$ docker network inspect lab13_frontend
 [
     {
@@ -211,6 +226,8 @@ gil-a@LAPTOP-HU5MFDCI:/mnt/c/Users/gil-a/Desktop/Studia/Semestr 6/docker/lab13$ 
         }
     }
 ]
+```
+```
 gil-a@LAPTOP-HU5MFDCI:/mnt/c/Users/gil-a/Desktop/Studia/Semestr 6/docker/lab13$ docker exec -it mysql mysql -u root -p
 Enter password:
 Welcome to the MySQL monitor.  Commands end with ; or \g.
@@ -224,7 +241,8 @@ affiliates. Other names may be trademarks of their respective
 owners.
 
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-
+```
+```
 mysql> SHOW DATABASES;
 +--------------------+
 | Database           |
@@ -237,12 +255,15 @@ mysql> SHOW DATABASES;
 | testdb             |
 +--------------------+
 6 rows in set (0.00 sec)
-
+```
+```
 mysql> docker compose down
     -> ^C
 mysql> ^C
 mysql> exit
 Bye
+```
+```
 gil-a@LAPTOP-HU5MFDCI:/mnt/c/Users/gil-a/Desktop/Studia/Semestr 6/docker/lab13$ docker compose down
 [+] down 6/6
  ✔ Container phpmyadmin   Removed                                                                                   1.6s
@@ -252,19 +273,9 @@ gil-a@LAPTOP-HU5MFDCI:/mnt/c/Users/gil-a/Desktop/Studia/Semestr 6/docker/lab13$ 
  ✔ Network lab13_frontend Removed                                                                                   0.3s
  ✔ Network lab13_backend  Removed                                                                                   0.5s
 gil-a@LAPTOP-HU5MFDCI:/mnt/c/Users/gil-a/Desktop/Studia/Semestr 6/docker/lab13$
-
-
-
-
-
-
-
-
-
-CZESC NIEOBOWIAZKOWA
-
-
-
+```
+##CZĘŚĆ NIEOBOWIĄZKOWA
+```
 gil-a@LAPTOP-HU5MFDCI:/mnt/c/Users/gil-a/Desktop/Studia/Semestr 6/docker/lab13$ docker compose config
 name: lab13
 services:
@@ -360,14 +371,20 @@ secrets:
   mysql_user:
     name: lab13_mysql_user
     file: /mnt/c/Users/gil-a/Desktop/Studia/Semestr 6/docker/lab13/secrets/mysql_user.txt
+```
+```
 gil-a@LAPTOP-HU5MFDCI:/mnt/c/Users/gil-a/Desktop/Studia/Semestr 6/docker/lab13$ docker compose down -v
 [+] down 1/1
  ✔ Volume lab13_mysql_data Removed                                                                                  0.0s
+```
+```
 gil-a@LAPTOP-HU5MFDCI:/mnt/c/Users/gil-a/Desktop/Studia/Semestr 6/docker/lab13$ docker volume ls
 DRIVER    VOLUME NAME
 local     buildx_buildkit_weatherbuilder0_state
 local     compose_grafana_data
 local     compose_prometheus_data
+```
+```
 gil-a@LAPTOP-HU5MFDCI:/mnt/c/Users/gil-a/Desktop/Studia/Semestr 6/docker/lab13$ docker compose up -d
 [+] up 7/7
  ✔ Network lab13_backend   Created                                                                                  0.0s
@@ -377,11 +394,8 @@ gil-a@LAPTOP-HU5MFDCI:/mnt/c/Users/gil-a/Desktop/Studia/Semestr 6/docker/lab13$ 
  ✔ Container php           Started                                                                                  0.4s
  ✔ Container nginx         Started                                                                                  0.7s
  ✔ Container phpmyadmin    Started
-
-
-
-
-
+```
+```
 gil-a@LAPTOP-HU5MFDCI:/mnt/c/Users/gil-a/Desktop/Studia/Semestr 6/docker/lab13$ docker exec -it mysql bash
 bash-5.1# ls /run/secrets
 mysql_password  mysql_root_password  mysql_user
@@ -390,6 +404,8 @@ root123bash-5.1# ^C
 bash-5.1# ^C
 bash-5.1# exit
 exit
+```
+```
 gil-a@LAPTOP-HU5MFDCI:/mnt/c/Users/gil-a/Desktop/Studia/Semestr 6/docker/lab13$ docker exec -it mysql mysql -u root -p
 Enter password:
 Welcome to the MySQL monitor.  Commands end with ; or \g.
@@ -403,7 +419,8 @@ affiliates. Other names may be trademarks of their respective
 owners.
 
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-
+```
+```
 mysql> SHOW DATABASES;
 +--------------------+
 | Database           |
@@ -415,7 +432,8 @@ mysql> SHOW DATABASES;
 | testdb             |
 +--------------------+
 5 rows in set (0.02 sec)
-
+```
+```
 mysql> SHOW DATABASES;
 +-----------------------+
 | Database              |
@@ -430,5 +448,6 @@ mysql> SHOW DATABASES;
 6 rows in set (0.00 sec)
 
 mysql>
+```
 
 
